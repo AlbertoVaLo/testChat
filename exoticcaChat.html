@@ -30,7 +30,59 @@
 			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
 			// Returns a valid button ID.
 		//};
-		embedded_svc.settings.extraPrechatFormDetails = [{ "label": "Origin", "value": "Chat", "displayToAgent": true},								
+		embedded_svc.settings.prepopulatedPrechatFields = {FirstName: "Alberto",LastName: "Vazquez",Email: "alberto.vazquez@exoticca.com"};
+		embedded_svc.settings.extraPrechatFormDetails = [{ "label": "Origin", "value": "Call", "displayToAgent": true},								 
+								 { "label": "Priority", "value": "Critical", "displayToAgent": true},							 
+								 { "label": "Market", "value": "ES", "displayToAgent": true}
+								 ];
+		embedded_svc.settings.extraPrechatInfo = [{
+		  "entityFieldMaps": [{
+		    "doCreate": true,
+		    "doFind": false,
+		    "fieldName": "Origin",
+		    "isExactMatch": true,
+		    "label": "Origin"
+		  },{
+		    "doCreate": true,
+		    "doFind": false,
+		    "fieldName": "Priority",
+		    "isExactMatch": true,
+		    "label": "Priority"
+		  },{
+		    "doCreate": true,
+		    "doFind": false,
+		    "fieldName": "Market__c",
+		    "isExactMatch": true,
+		    "label": "Market"
+		  }
+				     ],
+		  "entityName": "Case"
+		},{
+		"entityFieldMaps":[{
+		"doCreate":true,
+		"doFind":false,
+		"fieldName":"LastName",
+		"isExactMatch":false,
+		"label":"Last Name"
+		},{
+		"doCreate":true,
+		"doFind":false,
+		"fieldName":"FirstName",
+		"isExactMatch":false,
+		"label":"First Name"
+		}, {
+		"doCreate":true,
+		"doFind":true,
+		"fieldName":"Email",
+		"isExactMatch":true,
+		"label":"Email"
+		}
+		],
+		"entityName":"Contact",
+		"saveToTranscript":"Contact",
+		"showOnCreate":true}
+		];
+		/*embedded_svc.settings.extraPrechatFormDetails = [{ "label": "Origin", "value": "Chat", "displayToAgent": true},								
 								 { "label": "Priority", "value": "Low", "displayToAgent": true},
 								 { "label": "FirstName", "value": "Alberto", "displayToAgent": true},
 								 { "label": "LastName", "value": "Vazquez", "displayToAgent": true},
@@ -76,7 +128,7 @@
 		"entityName":"Contact",
 		"saveToTranscript":"Contact",
 		"showOnCreate":true}
-		];
+		];*/
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
